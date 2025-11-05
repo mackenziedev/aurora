@@ -15,6 +15,7 @@ A modern, high-performance portfolio website built with Astro, featuring a dark 
 - Easy content management
 
 ## Quick Start
+
 ```bash
 # Install dependencies
 npm install
@@ -32,6 +33,7 @@ npm run preview
 ## Configuration
 
 All site configuration is centralized in `src/config.js`:
+
 ```javascript
 export const siteConfig = {
   name: "Your Name",
@@ -41,7 +43,7 @@ export const siteConfig = {
   bio: "Your bio",
   avatar: "/images/profile.jpg",
   socials: [
-    { name: "GitHub", url: "https://github.com/username", icon: "logo_github" },
+    { name: "GitHub", url: "https://github.com/username", icon: "fa-brands fa-github" },
     // Add more social links
   ],
   navigation: [
@@ -56,6 +58,7 @@ export const siteConfig = {
 ### Blog Posts
 
 Create a new `.mdx` file in `src/content/blog/`:
+
 ```mdx
 ---
 title: "Your Post Title"
@@ -71,6 +74,7 @@ Your content here...
 ### Projects
 
 Create a new `.mdx` file in `src/content/projects/`:
+
 ```mdx
 ---
 title: "Project Name"
@@ -86,6 +90,7 @@ Project details here...
 ```
 
 ## Project Structure
+
 ```
 /
 ├── public/
@@ -109,6 +114,7 @@ Project details here...
 ### Colors
 
 Edit the color scheme in `src/styles/globals.css`:
+
 ```css
 :root {
   --background: #121212;
@@ -125,19 +131,21 @@ The site uses Google Fonts. Update fonts in `src/layouts/BaseLayout.astro`.
 
 ### Icons
 
-This portfolio uses Nucleo icons. Update icon classes in components as needed.
+This portfolio uses Font Awesome 6.7 for icons. Icon classes follow the format `fa-brands fa-{icon-name}` for brand icons and `fa-solid fa-{icon-name}` for regular icons. Update icon classes in `src/config.js` and components as needed.
 
 ## Deployment
 
 Deploy to any static hosting platform:
 
 ### Vercel
+
 ```bash
 npm install -g vercel
 vercel
 ```
 
 ### Netlify
+
 ```bash
 npm run build
 # Deploy the dist/ folder
