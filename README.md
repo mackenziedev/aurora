@@ -15,8 +15,7 @@ A modern, high-performance portfolio website built with Astro, featuring a dark 
 - Easy content management
 
 ## Quick Start
-
-\`\`\`bash
+```bash
 # Install dependencies
 npm install
 
@@ -28,13 +27,12 @@ npm run build
 
 # Preview production build
 npm run preview
-\`\`\`
+```
 
 ## Configuration
 
 All site configuration is centralized in `src/config.js`:
-
-\`\`\`javascript
+```javascript
 export const siteConfig = {
   name: "Your Name",
   title: "Your Title",
@@ -51,15 +49,14 @@ export const siteConfig = {
     // Add more nav items
   ]
 }
-\`\`\`
+```
 
 ## Adding Content
 
 ### Blog Posts
 
 Create a new `.mdx` file in `src/content/blog/`:
-
-\`\`\`mdx
+```mdx
 ---
 title: "Your Post Title"
 description: "Post description"
@@ -69,13 +66,12 @@ image: "/path/to/image.jpg"
 ---
 
 Your content here...
-\`\`\`
+```
 
 ### Projects
 
 Create a new `.mdx` file in `src/content/projects/`:
-
-\`\`\`mdx
+```mdx
 ---
 title: "Project Name"
 description: "Project description"
@@ -87,11 +83,10 @@ order: 1
 ---
 
 Project details here...
-\`\`\`
+```
 
 ## Project Structure
-
-\`\`\`
+```
 /
 ├── public/
 │   └── images/          # Static images
@@ -107,15 +102,14 @@ Project details here...
 │   └── config.js        # Site configuration
 ├── astro.config.mjs     # Astro config
 └── tailwind.config.mjs  # Tailwind config
-\`\`\`
+```
 
 ## Customization
 
 ### Colors
 
 Edit the color scheme in `src/styles/globals.css`:
-
-\`\`\`css
+```css
 :root {
   --background: #121212;
   --primary: #f5f5f5;
@@ -123,7 +117,7 @@ Edit the color scheme in `src/styles/globals.css`:
   --accent: #3d3d3d;
   --surface: #1e1e1e;
 }
-\`\`\`
+```
 
 ### Fonts
 
@@ -138,18 +132,16 @@ This portfolio uses Nucleo icons. Update icon classes in components as needed.
 Deploy to any static hosting platform:
 
 ### Vercel
-
-\`\`\`bash
+```bash
 npm install -g vercel
 vercel
-\`\`\`
+```
 
 ### Netlify
-
-\`\`\`bash
+```bash
 npm run build
 # Deploy the dist/ folder
-\`\`\`
+```
 
 ### Cloudflare Pages
 
