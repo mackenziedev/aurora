@@ -2,10 +2,10 @@
 export const siteConfig = {
   // Personal Information
   name: "Mackenzie",
-  title: "Full-stack Developer",
+  title: "Full-stack Developer (With a Love-Hate Relationship to JavaScript)",
   email: "hello@mackenziedev.site",
   domain: "mackenziedev.site",
-  bio: "My goal is to write maintainable, clean and understandable code to process development was enjoyable.",
+  bio: "Building fast, clean, and occasionally over-engineered things since the post-COVID boredom era. Fluent in HTML, Android Studio, and chaos.",
 
   // Profile Images
   avatar: "/images/profile.jpg",
@@ -24,28 +24,13 @@ export const siteConfig = {
   socials: [
     {
       name: "GitHub",
-      url: "https://github.com/mackenzie",
+      url: "https://github.com/mackenziedev",
       icon: "fa-brands fa-github",
     },
     {
-      name: "LinkedIn",
-      url: "https://linkedin.com/in/mackenzie",
-      icon: "fa-brands fa-linkedin",
-    },
-    {
-      name: "Telegram",
-      url: "https://t.me/mackenzie",
-      icon: "fa-brands fa-telegram",
-    },
-    {
-      name: "Instagram",
-      url: "https://instagram.com/in/mackenzie",
-      icon: "fa-brands fa-instagram",
-    },
-    {
-      name: "Twitter",
-      url: "https://twitter.com/mackenzie",
-      icon: "fa-brands fa-twitter",
+      name: "Bluesky",
+      url: "https://bsky.app/profile/mackenziedev.bsky.social",
+      icon: "fa-solid fa-cloud", // fallback since no Bluesky icon
     },
   ],
 
@@ -75,79 +60,71 @@ export const siteConfig = {
     {
       category: "Frontend",
       items: [
-        { name: "React", level: 90, icon: "fa-brands fa-react" },
-        { name: "Vue.js", level: 85, icon: "fa-brands fa-vuejs" },
-        { name: "TypeScript", level: 88, icon: "fa-brands fa-js" },
-        { name: "Tailwind CSS", level: 92, icon: "fa-solid fa-palette" },
+        { name: "HTML", level: 100, icon: "fa-brands fa-html5" },
+        { name: "CSS", level: 95, icon: "fa-brands fa-css3-alt" },
+        { name: "JavaScript", level: 70, icon: "fa-brands fa-js" },
+        { name: "Tailwind CSS", level: 90, icon: "fa-solid fa-palette" },
       ],
     },
     {
       category: "Backend",
       items: [
-        { name: "Node.js", level: 87, icon: "fa-brands fa-node" },
-        { name: "Python", level: 83, icon: "fa-brands fa-python" },
-        { name: "PostgreSQL", level: 85, icon: "fa-solid fa-database" },
+        { name: "Node.js", level: 75, icon: "fa-brands fa-node" },
+        { name: "Java", level: 95, icon: "fa-brands fa-java" },
+        { name: "Android Studio", level: 98, icon: "fa-solid fa-robot" },
         { name: "MongoDB", level: 80, icon: "fa-solid fa-leaf" },
       ],
     },
     {
       category: "DevOps",
       items: [
-        { name: "Docker", level: 86, icon: "fa-brands fa-docker" },
-        { name: "AWS", level: 82, icon: "fa-brands fa-aws" },
-        { name: "CI/CD", level: 84, icon: "fa-solid fa-gears" },
-        { name: "Git", level: 90, icon: "fa-brands fa-git-alt" },
+        { name: "Docker", level: 60, icon: "fa-brands fa-docker" },
+        { name: "Git", level: 85, icon: "fa-brands fa-git-alt" },
+        { name: "CI/CD", level: 75, icon: "fa-solid fa-gears" },
+        { name: "Linux", level: 80, icon: "fa-brands fa-linux" },
       ],
     },
   ],
 
   // Stats
   stats: [
-    { label: "Years Experience", value: "5+", icon: "fa-solid fa-calendar" },
-    { label: "Projects Completed", value: "50+", icon: "fa-solid fa-rocket" },
-    { label: "Happy Clients", value: "30+", icon: "fa-solid fa-users" },
-    { label: "Code Commits", value: "10K+", icon: "fa-brands fa-github" },
+    { label: "Years Coding", value: "5+", icon: "fa-solid fa-code" },
+    { label: "Projects Completed", value: "40+", icon: "fa-solid fa-rocket" },
+    { label: "Brain Cells Left", value: "3", icon: "fa-solid fa-brain" },
+    { label: "Commits That Fixed Nothing", value: "∞", icon: "fa-solid fa-bug" },
   ],
 
   // Experience
   experience: [
     {
-      year: "2022 - Present",
-      title: "Senior Full-stack Developer",
-      company: "Tech Innovations Inc.",
+      year: "2025",
+      title: "Abi & Code",
+      company: "Still at Gymnasium",
       description:
-        "Leading development of scalable web applications using React, Node.js, and AWS. Mentoring junior developers and implementing best practices.",
-      technologies: ["React", "Node.js", "AWS", "PostgreSQL"],
+        "Balancing final exams with debugging Android apps like a champ. Learned that caffeine and Java exceptions pair better than most wines.",
+      technologies: ["Java", "Android Studio", "HTML", "CSS"],
     },
     {
-      year: "2021 - 2022",
-      title: "Full-stack Developer",
-      company: "Digital Solutions Ltd.",
+      year: "2023 – 2024",
+      title: "Android Magician",
+      company: "Freelance & Personal Projects",
       description:
-        "Developed and maintained multiple client projects, focusing on performance optimization and user experience improvements.",
-      technologies: ["Vue.js", "Python", "MongoDB", "Docker"],
+        "Turned coffee into Android apps. Built a few passion projects that actually worked, which was a nice surprise. Experimented with Kotlin, got bored, crawled back to Java.",
+      technologies: ["Android", "Java", "Kotlin", "Firebase"],
     },
     {
-      year: "2020 - 2021",
-      title: "Frontend Developer",
-      company: "Creative Agency",
+      year: "2020 – 2022",
+      title: "Self-Taught Chaos Developer",
+      company: "Post-COVID Coding Arc",
       description:
-        "Built responsive and interactive web interfaces for various clients. Collaborated with designers to implement pixel-perfect designs.",
-      technologies: ["JavaScript", "React", "Tailwind CSS", "Figma"],
-    },
-    {
-      year: "2019 - 2020",
-      title: "Junior Developer",
-      company: "StartUp Hub",
-      description:
-        "Started my professional journey building features for a SaaS platform. Learned modern development practices and agile methodologies.",
-      technologies: ["HTML", "CSS", "JavaScript", "Git"],
+        "Started learning coding during lockdown out of boredom. Accidentally discovered a genuine passion. Wrote some HTML that still haunts my dreams.",
+      technologies: ["HTML", "CSS", "JS", "Node.js"],
     },
   ],
 
   // GitHub Integration
   github: {
-    username: "mackenzie",
+    username: "mackenziedev",
     showRepos: true,
     maxRepos: 6,
   },
