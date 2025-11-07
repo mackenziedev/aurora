@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="en" data-theme="dark"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Understanding Website Types: Static, Dynamic, and Hybrid | Mackenzie</title><meta name="description" content="A comprehensive guide to different website architectures, their pros and cons, and when to use each approach."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"><!-- Prevent flash by reading theme cookie before rendering --><script>
+    (function() {
+      const theme = document.cookie.split('; ').find(row => row.startsWith('theme='))?.split('=')[1] || 'dark';
+      document.documentElement.classList.add(theme);
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script><link rel="stylesheet" href="/_astro/about.B-_oXgx-.css">
+<link rel="stylesheet" href="/_astro/about.CR63FP8o.css"></head> <body class="bg-background text-primary font-body antialiased"> <nav class="fixed top-0 left-0 right-0 z-50 nav-blur transition-transform duration-300" data-astro-cid-pux6a34n> <div class="max-w-7xl mx-auto px-6" data-astro-cid-pux6a34n> <div class="flex items-center justify-between h-20" data-astro-cid-pux6a34n> <a href="/" class="relative group" data-astro-cid-pux6a34n> <span class="text-2xl font-display tracking-wider gradient-text hover:scale-105 transition-transform inline-block" data-astro-cid-pux6a34n> Mackenzie </span> <div class="absolute -bottom-1 left-0 w-0 h-0.5 gradient-bg group-hover:w-full transition-all duration-300" data-astro-cid-pux6a34n></div> </a> <div class="hidden lg:flex items-center gap-1" data-astro-cid-pux6a34n> <a href="/#about" class="nav-link px-4 py-2 rounded-full text-sm font-medium relative overflow-hidden group" style="animation-delay: 0s;" data-astro-cid-pux6a34n> <span class="relative z-10" data-astro-cid-pux6a34n>About</span> <div class="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" data-astro-cid-pux6a34n></div> </a><a href="/#skills" class="nav-link px-4 py-2 rounded-full text-sm font-medium relative overflow-hidden group" style="animation-delay: 0.1s;" data-astro-cid-pux6a34n> <span class="relative z-10" data-astro-cid-pux6a34n>Skills</span> <div class="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" data-astro-cid-pux6a34n></div> </a><a href="/#experience" class="nav-link px-4 py-2 rounded-full text-sm font-medium relative overflow-hidden group" style="animation-delay: 0.2s;" data-astro-cid-pux6a34n> <span class="relative z-10" data-astro-cid-pux6a34n>Experience</span> <div class="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" data-astro-cid-pux6a34n></div> </a><a href="/#projects" class="nav-link px-4 py-2 rounded-full text-sm font-medium relative overflow-hidden group" style="animation-delay: 0.30000000000000004s;" data-astro-cid-pux6a34n> <span class="relative z-10" data-astro-cid-pux6a34n>Projects</span> <div class="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" data-astro-cid-pux6a34n></div> </a><a href="/#articles" class="nav-link px-4 py-2 rounded-full text-sm font-medium relative overflow-hidden group" style="animation-delay: 0.4s;" data-astro-cid-pux6a34n> <span class="relative z-10" data-astro-cid-pux6a34n>Articles</span> <div class="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" data-astro-cid-pux6a34n></div> </a><a href="/#contact" class="nav-link px-4 py-2 rounded-full text-sm font-medium relative overflow-hidden group" style="animation-delay: 0.5s;" data-astro-cid-pux6a34n> <span class="relative z-10" data-astro-cid-pux6a34n>Contact</span> <div class="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" data-astro-cid-pux6a34n></div> </a> </div> <div class="hidden lg:flex items-center gap-4" data-astro-cid-pux6a34n> <!-- Fixed theme toggle with proper icon positioning --> <a href="https://github.com/mackenziedev" target="_blank" rel="noopener" class="px-6 py-3 gradient-bg rounded-full font-medium hover:scale-105 transition-all glow-hover inline-flex items-center gap-2" data-astro-cid-pux6a34n> <i class="fa-brands fa-github text-lg" data-astro-cid-pux6a34n></i> <span data-astro-cid-pux6a34n>GitHub</span> </a> </div> <button id="mobile-menu-btn" class="lg:hidden w-12 h-12 glass glass-hover rounded-full flex items-center justify-center relative" aria-label="Toggle menu" data-astro-cid-pux6a34n> <div class="hamburger" data-astro-cid-pux6a34n> <span data-astro-cid-pux6a34n></span> <span data-astro-cid-pux6a34n></span> <span data-astro-cid-pux6a34n></span> </div> </button> </div> </div> <div id="mobile-menu" class="lg:hidden mobile-menu" data-astro-cid-pux6a34n> <div class="glass border-t border-white/10 backdrop-blur-xl" data-astro-cid-pux6a34n> <div class="max-w-7xl mx-auto px-6 py-6 space-y-2" data-astro-cid-pux6a34n> <a href="/#about" class="block px-4 py-3 rounded-xl hover:bg-white/10 transition-colors font-medium mobile-menu-item" data-astro-cid-pux6a34n> About </a><a href="/#skills" class="block px-4 py-3 rounded-xl hover:bg-white/10 transition-colors font-medium mobile-menu-item" data-astro-cid-pux6a34n> Skills </a><a href="/#experience" class="block px-4 py-3 rounded-xl hover:bg-white/10 transition-colors font-medium mobile-menu-item" data-astro-cid-pux6a34n> Experience </a><a href="/#projects" class="block px-4 py-3 rounded-xl hover:bg-white/10 transition-colors font-medium mobile-menu-item" data-astro-cid-pux6a34n> Projects </a><a href="/#articles" class="block px-4 py-3 rounded-xl hover:bg-white/10 transition-colors font-medium mobile-menu-item" data-astro-cid-pux6a34n> Articles </a><a href="/#contact" class="block px-4 py-3 rounded-xl hover:bg-white/10 transition-colors font-medium mobile-menu-item" data-astro-cid-pux6a34n> Contact </a> <a href="https://github.com/mackenziedev" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 px-4 py-3 gradient-bg rounded-xl font-medium mt-4 mobile-menu-item" data-astro-cid-pux6a34n> <i class="fa-brands fa-github" data-astro-cid-pux6a34n></i> <span data-astro-cid-pux6a34n>GitHub</span> </a> </div> </div> </div> </nav>  <script type="module">const t=document.getElementById("mobile-menu-btn"),l=document.getElementById("mobile-menu");t?.addEventListener("click",()=>{l?.classList.toggle("open"),t?.classList.toggle("menu-open")});const o=l?.querySelectorAll("a");o?.forEach(e=>{e.addEventListener("click",()=>{l?.classList.remove("open"),t?.classList.remove("menu-open")})});let n=0;const s=document.querySelector("nav");window.addEventListener("scroll",()=>{const e=window.pageYOffset;e>n&&e>100?s?.classList.add("-translate-y-full"):s?.classList.remove("-translate-y-full"),n=e});</script>  <main class="pt-32 pb-20"> <article class="max-w-4xl mx-auto px-6"> <header class="mb-12"> <a href="/blog" class="inline-flex items-center gap-2 text-secondary hover:text-primary transition-colors mb-8 group"> <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+Back to articles
+</a> <h1 class="text-5xl lg:text-6xl font-display mb-6 leading-tight gradient-text"> Understanding Website Types: Static, Dynamic, and Hybrid </h1> <div class="flex flex-wrap items-center gap-4 text-secondary mb-6"> <time class="flex items-center gap-2"> <i class="fas fa-calendar-alt text-primary"></i> November 6, 2025 </time> <span>•</span> <div class="flex gap-2 flex-wrap"> <span class="px-3 py-1 bg-surface rounded-full text-xs border border-primary/20 hover:border-primary/40 transition-colors"> web development </span><span class="px-3 py-1 bg-surface rounded-full text-xs border border-primary/20 hover:border-primary/40 transition-colors"> architecture </span><span class="px-3 py-1 bg-surface rounded-full text-xs border border-primary/20 hover:border-primary/40 transition-colors"> hosting </span> </div> </div> <div class="glass p-4 rounded-xl"> <p class="text-sm text-secondary"> <i class="fas fa-clock text-primary mr-2"></i>
+Estimated reading time: 5 min
+</p> </div> </header> <div class="prose prose-lg max-w-none"> <h1 id="understanding-website-types-static-dynamic-and-hybrid">Understanding Website Types: Static, Dynamic, and Hybrid</h1>
+<p>When building a website, one of the most important decisions is choosing the right architecture. Let’s explore the three main types of websites and understand when each approach makes sense.</p>
+<h2 id="static-websites">Static Websites</h2>
+<div style="margin:2rem 0;padding:2rem;background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);border-radius:12px"><svg viewBox="0 0 800 200" style="width:100%;height:auto"><defs><marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#fff"></polygon></marker></defs><circle cx="100" cy="100" r="40" fill="#fff" opacity="0.9"></circle><text x="100" y="105" textAnchor="middle" fill="#667eea" fontSize="14" fontWeight="bold">User</text><line x1="150" y1="100" x2="230" y2="100" stroke="#fff" strokeWidth="3" markerEnd="url(#arrowhead)"></line><text x="190" y="90" textAnchor="middle" fill="#fff" fontSize="12">Request</text><rect x="240" y="60" width="120" height="80" rx="8" fill="#fff" opacity="0.9"></rect><text x="300" y="95" textAnchor="middle" fill="#667eea" fontSize="14" fontWeight="bold">Web Server</text><text x="300" y="115" textAnchor="middle" fill="#667eea" fontSize="11">(Nginx/Apache)</text><line x1="370" y1="100" x2="450" y2="100" stroke="#fff" strokeWidth="3" markerEnd="url(#arrowhead)"></line><text x="410" y="90" textAnchor="middle" fill="#fff" fontSize="12">Fetch</text><rect x="460" y="60" width="120" height="80" rx="8" fill="#fff" opacity="0.9"></rect><text x="520" y="95" textAnchor="middle" fill="#667eea" fontSize="14" fontWeight="bold">HTML Files</text><text x="520" y="115" textAnchor="middle" fill="#667eea" fontSize="11">index.html</text><line x1="450" y1="120" x2="370" y2="120" stroke="#fff" strokeWidth="3" markerEnd="url(#arrowhead)"></line><line x1="230" y1="120" x2="150" y2="120" stroke="#fff" strokeWidth="3" markerEnd="url(#arrowhead)"></line><text x="300" y="150" textAnchor="middle" fill="#fff" fontSize="12">HTML Response</text></svg></div>
+<p>A <strong>static website</strong> consists of fixed HTML, CSS, and JavaScript files. When a user visits your site, the server simply sends these pre-built files directly to their browser.</p>
+<h3 id="how-it-works">How It Works</h3>
+<pre class="astro-code astro-code-themes dracula dracula" style="background-color:#282A36;--shiki-dark-bg:#282A36;color:#F8F8F2;--shiki-dark:#F8F8F2;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>User Request → Web Server → HTML File → User&#39;s Browser</span></span></code></pre>
+<p>The content doesn’t change unless you manually update the files. Think of it like a digital brochure - the same for everyone who views it.</p>
+<h3 id="pros">Pros</h3>
+<ul>
+<li><strong>Lightning Fast</strong>: No database queries or server-side processing means instant load times</li>
+<li><strong>Highly Secure</strong>: Minimal attack surface since there’s no backend logic or database</li>
+<li><strong>Cost-Effective</strong>: Can be hosted on CDNs for pennies per month</li>
+<li><strong>Simple Deployment</strong>: Just upload files and you’re done</li>
+<li><strong>Great SEO</strong>: Search engines love fast, simple HTML</li>
+</ul>
+<h3 id="cons">Cons</h3>
+<ul>
+<li><strong>No Dynamic Content</strong>: Every change requires manual file updates</li>
+<li><strong>Limited Interactivity</strong>: Can’t handle user-generated content or personalization</li>
+<li><strong>No User Authentication</strong>: Can’t have login systems or user accounts</li>
+<li><strong>Scalability Issues</strong>: Managing hundreds of pages manually becomes tedious</li>
+</ul>
+<h3 id="best-for">Best For</h3>
+<ul>
+<li>Portfolio sites</li>
+<li>Landing pages</li>
+<li>Documentation sites</li>
+<li>Blogs (with static site generators like Next.js, Hugo, or Jekyll)</li>
+<li>Marketing websites</li>
+</ul>
+<hr/>
+<h2 id="dynamic-websites">Dynamic Websites</h2>
+<div style="margin:2rem 0;padding:2rem;background:linear-gradient(135deg, #f093fb 0%, #f5576c 100%);border-radius:12px"><svg viewBox="0 0 900 200" style="width:100%;height:auto"><defs><marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#fff"></polygon></marker></defs><circle cx="80" cy="100" r="35" fill="#fff" opacity="0.9"></circle><text x="80" y="105" textAnchor="middle" fill="#f5576c" fontSize="13" fontWeight="bold">User</text><line x1="125" y1="100" x2="185" y2="100" stroke="#fff" strokeWidth="3" markerEnd="url(#arrowhead2)"></line><rect x="195" y="65" width="110" height="70" rx="8" fill="#fff" opacity="0.9"></rect><text x="250" y="95" textAnchor="middle" fill="#f5576c" fontSize="13" fontWeight="bold">Web Server</text><text x="250" y="115" textAnchor="middle" fill="#f5576c" fontSize="10">Node.js/PHP</text><line x1="315" y1="100" x2="375" y2="100" stroke="#fff" strokeWidth="3" markerEnd="url(#arrowhead2)"></line><rect x="385" y="65" width="110" height="70" rx="8" fill="#fff" opacity="0.9"></rect><text x="440" y="95" textAnchor="middle" fill="#f5576c" fontSize="13" fontWeight="bold">App Logic</text><text x="440" y="115" textAnchor="middle" fill="#f5576c" fontSize="10">Process Request</text><line x1="505" y1="100" x2="565" y2="100" stroke="#fff" strokeWidth="3" markerEnd="url(#arrowhead2)"></line><text x="535" y="90" textAnchor="middle" fill="#fff" fontSize="11">Query</text><rect x="575" y="65" width="110" height="70" rx="8" fill="#fff" opacity="0.9"></rect><text x="630" y="95" textAnchor="middle" fill="#f5576c" fontSize="13" fontWeight="bold">Database</text><text x="630" y="115" textAnchor="middle" fill="#f5576c" fontSize="10">MySQL/Postgres</text><line x1="565" y1="120" x2="505" y2="120" stroke="#fff" strokeWidth="2" markerEnd="url(#arrowhead2)"></line><line x1="375" y1="120" x2="315" y2="120" stroke="#fff" strokeWidth="2" markerEnd="url(#arrowhead2)"></line><line x1="185" y1="120" x2="125" y2="120" stroke="#fff" strokeWidth="2" markerEnd="url(#arrowhead2)"></line><text x="350" y="150" textAnchor="middle" fill="#fff" fontSize="11">Generated HTML</text></svg></div>
+<p>A <strong>dynamic website</strong> generates content on-the-fly using server-side code and databases. Each request can produce different content based on user data, time, location, or other factors.</p>
+<h3 id="how-it-works-1">How It Works</h3>
+<pre class="astro-code astro-code-themes dracula dracula" style="background-color:#282A36;--shiki-dark-bg:#282A36;color:#F8F8F2;--shiki-dark:#F8F8F2;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>User Request → Web Server → Application Logic → Database Query → Generated HTML → User&#39;s Browser</span></span></code></pre>
+<p>The server runs code (PHP, Python, Node.js, etc.) that queries a database and builds the HTML page dynamically for each request.</p>
+<h3 id="pros-1">Pros</h3>
+<ul>
+<li><strong>Personalized Content</strong>: Different users see different content based on their data</li>
+<li><strong>Easy Content Management</strong>: Update content through admin panels, no code changes needed</li>
+<li><strong>User Interaction</strong>: Forms, comments, user accounts, and real-time features</li>
+<li><strong>Scalable Content</strong>: Add thousands of pages without manual work</li>
+<li><strong>Rich Features</strong>: E-commerce, social features, dashboards, and more</li>
+</ul>
+<h3 id="cons-1">Cons</h3>
+<ul>
+<li><strong>Slower Performance</strong>: Database queries and server processing add latency</li>
+<li><strong>Higher Costs</strong>: Requires more powerful servers and databases</li>
+<li><strong>Security Concerns</strong>: More attack vectors (SQL injection, XSS, etc.)</li>
+<li><strong>Complex Maintenance</strong>: Regular updates, backups, and monitoring needed</li>
+<li><strong>Server Dependencies</strong>: Requires specific server configurations</li>
+</ul>
+<h3 id="best-for-1">Best For</h3>
+<ul>
+<li>E-commerce sites</li>
+<li>Social networks</li>
+<li>Web applications</li>
+<li>Content management systems (WordPress, Drupal)</li>
+<li>User dashboards</li>
+<li>Sites with frequent content updates</li>
+</ul>
+<hr/>
+<h2 id="hybrid-websites-static-site-generation--dynamic-features">Hybrid Websites (Static Site Generation + Dynamic Features)</h2>
+<div style="margin:2rem 0;padding:2rem;background:linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);border-radius:12px"><svg viewBox="0 0 800 280" style="width:100%;height:auto"><defs><marker id="arrowhead3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#fff"></polygon></marker></defs><text x="400" y="25" textAnchor="middle" fill="#fff" fontSize="16" fontWeight="bold">Build Time</text><rect x="50" y="40" width="700" height="80" rx="8" fill="#fff" opacity="0.15" strokeWidth="2" stroke="#fff"></rect><rect x="100" y="60" width="120" height="40" rx="6" fill="#fff" opacity="0.9"></rect><text x="160" y="85" textAnchor="middle" fill="#00f2fe" fontSize="12" fontWeight="bold">Data Sources</text><line x1="230" y1="80" x2="280" y2="80" stroke="#fff" strokeWidth="2" markerEnd="url(#arrowhead3)"></line><rect x="290" y="60" width="120" height="40" rx="6" fill="#fff" opacity="0.9"></rect><text x="350" y="85" textAnchor="middle" fill="#00f2fe" fontSize="12" fontWeight="bold">Build Process</text><line x1="420" y1="80" x2="470" y2="80" stroke="#fff" strokeWidth="2" markerEnd="url(#arrowhead3)"></line><rect x="480" y="60" width="120" height="40" rx="6" fill="#fff" opacity="0.9"></rect><text x="540" y="85" textAnchor="middle" fill="#00f2fe" fontSize="12" fontWeight="bold">Static HTML</text><text x="400" y="155" textAnchor="middle" fill="#fff" fontSize="16" fontWeight="bold">Runtime</text><rect x="50" y="170" width="700" height="90" rx="8" fill="#fff" opacity="0.15" strokeWidth="2" stroke="#fff"></rect><circle cx="120" cy="215" r="30" fill="#fff" opacity="0.9"></circle><text x="120" y="220" textAnchor="middle" fill="#00f2fe" fontSize="11" fontWeight="bold">User</text><line x1="160" y1="215" x2="220" y2="215" stroke="#fff" strokeWidth="2" markerEnd="url(#arrowhead3)"></line><rect x="230" y="190" width="100" height="50" rx="6" fill="#fff" opacity="0.9"></rect><text x="280" y="212" textAnchor="middle" fill="#00f2fe" fontSize="11" fontWeight="bold">CDN</text><text x="280" y="228" textAnchor="middle" fill="#00f2fe" fontSize="9">Static Files</text><line x1="340" y1="215" x2="400" y2="215" stroke="#fff" strokeWidth="2" markerEnd="url(#arrowhead3)"></line><text x="370" y="205" textAnchor="middle" fill="#fff" fontSize="10">Fast!</text><rect x="410" y="190" width="100" height="50" rx="6" fill="#fff" opacity="0.9"></rect><text x="460" y="212" textAnchor="middle" fill="#00f2fe" fontSize="11" fontWeight="bold">Browser</text><text x="460" y="228" textAnchor="middle" fill="#00f2fe" fontSize="9">+ JavaScript</text><line x1="520" y1="215" x2="580" y2="215" stroke="#fff" strokeWidth="2" markerEnd="url(#arrowhead3)"></line><text x="550" y="205" textAnchor="middle" fill="#fff" fontSize="10">API Call</text><rect x="590" y="190" width="100" height="50" rx="6" fill="#fff" opacity="0.9"></rect><text x="640" y="212" textAnchor="middle" fill="#00f2fe" fontSize="11" fontWeight="bold">API</text><text x="640" y="228" textAnchor="middle" fill="#00f2fe" fontSize="9">Dynamic Data</text></svg></div>
+<p>A <strong>hybrid approach</strong> combines the best of both worlds. Pages are pre-rendered as static HTML for speed, but can fetch dynamic data when needed using JavaScript and APIs.</p>
+<h3 id="how-it-works-2">How It Works</h3>
+<pre class="astro-code astro-code-themes dracula dracula" style="background-color:#282A36;--shiki-dark-bg:#282A36;color:#F8F8F2;--shiki-dark:#F8F8F2;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word" tabindex="0" data-language="plaintext"><code><span class="line"><span>Build Time: Generate Static HTML from Data</span></span>
+<span class="line"><span>Runtime: Static HTML + Client-Side JavaScript → API Calls → Dynamic Updates</span></span></code></pre>
+<p>Modern frameworks like <strong>Next.js</strong>, <strong>Gatsby</strong>, and <strong>Astro</strong> excel at this approach, offering:</p>
+<ul>
+<li><strong>Static Site Generation (SSG)</strong>: Pre-render pages at build time</li>
+<li><strong>Incremental Static Regeneration (ISR)</strong>: Update static pages periodically</li>
+<li><strong>Client-Side Rendering (CSR)</strong>: Fetch data in the browser</li>
+<li><strong>Server-Side Rendering (SSR)</strong>: Generate pages on-demand when needed</li>
+</ul>
+<h3 id="pros-2">Pros</h3>
+<ul>
+<li><strong>Best Performance</strong>: Static HTML loads instantly, dynamic data loads progressively</li>
+<li><strong>SEO Friendly</strong>: Pre-rendered HTML is perfect for search engines</li>
+<li><strong>Flexible</strong>: Choose static or dynamic on a per-page basis</li>
+<li><strong>Modern DX</strong>: Great developer experience with hot reloading and TypeScript</li>
+<li><strong>Cost-Effective</strong>: Static hosting is cheap, only pay for API calls</li>
+</ul>
+<h3 id="cons-2">Cons</h3>
+<ul>
+<li><strong>Build Complexity</strong>: Requires understanding of build processes and deployment</li>
+<li><strong>Build Times</strong>: Large sites can take time to rebuild</li>
+<li><strong>Learning Curve</strong>: More concepts to understand than pure static or dynamic</li>
+<li><strong>Tooling Required</strong>: Need modern build tools and frameworks</li>
+</ul>
+<h3 id="best-for-2">Best For</h3>
+<ul>
+<li>Modern web applications</li>
+<li>E-commerce sites with product catalogs</li>
+<li>Blogs with comments or user features</li>
+<li>Marketing sites with forms and analytics</li>
+<li>Documentation with search features</li>
+<li>Any site that needs both speed and interactivity</li>
+</ul>
+<hr/>
+<h2 id="wordpress-the-popular-middle-ground">WordPress: The Popular Middle Ground</h2>
+<div style="margin:2rem 0;padding:2rem;background:linear-gradient(135deg, #fa709a 0%, #fee140 100%);border-radius:12px"><svg viewBox="0 0 800 200" style="width:100%;height:auto"><defs><marker id="arrowhead4" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#fff"></polygon></marker></defs><rect x="50" y="40" width="140" height="60" rx="8" fill="#fff" opacity="0.9"></rect><text x="120" y="65" textAnchor="middle" fill="#fa709a" fontSize="13" fontWeight="bold">Admin Panel</text><text x="120" y="85" textAnchor="middle" fill="#fa709a" fontSize="10">wp-admin</text><line x1="200" y1="70" x2="270" y2="70" stroke="#fff" strokeWidth="3" markerEnd="url(#arrowhead4)"></line><text x="235" y="60" textAnchor="middle" fill="#fff" fontSize="11">Edit Content</text><rect x="280" y="30" width="140" height="80" rx="8" fill="#fff" opacity="0.9"></rect><text x="350" y="60" textAnchor="middle" fill="#fa709a" fontSize="14" fontWeight="bold">WordPress</text><text x="350" y="78" textAnchor="middle" fill="#fa709a" fontSize="10">PHP + MySQL</text><text x="350" y="95" textAnchor="middle" fill="#fa709a" fontSize="9">Themes &amp; Plugins</text><line x1="430" y1="70" x2="500" y2="70" stroke="#fff" strokeWidth="3" markerEnd="url(#arrowhead4)"></line><text x="465" y="60" textAnchor="middle" fill="#fff" fontSize="11">Generate</text><rect x="510" y="40" width="140" height="60" rx="8" fill="#fff" opacity="0.9"></rect><text x="580" y="65" textAnchor="middle" fill="#fa709a" fontSize="13" fontWeight="bold">Website</text><text x="580" y="85" textAnchor="middle" fill="#fa709a" fontSize="10">Public Pages</text><circle cx="580" cy="160" r="30" fill="#fff" opacity="0.9"></circle><text x="580" y="165" textAnchor="middle" fill="#fa709a" fontSize="11" fontWeight="bold">Visitor</text><line x1="580" y1="120" x2="580" y2="130" stroke="#fff" strokeWidth="2" markerEnd="url(#arrowhead4)"></line><text x="620" y="125" textAnchor="start" fill="#fff" fontSize="11">Views Site</text></svg></div>
+<p><strong>WordPress</strong> powers over 40% of the web. It’s a dynamic CMS that lets non-technical users manage content through a visual interface.</p>
+<h3 id="pros-3">Pros</h3>
+<ul>
+<li><strong>User-Friendly</strong>: No coding required for content updates</li>
+<li><strong>Huge Ecosystem</strong>: Thousands of themes and plugins</li>
+<li><strong>Large Community</strong>: Easy to find help and tutorials</li>
+<li><strong>Flexible</strong>: Can build almost anything with plugins</li>
+</ul>
+<h3 id="cons-3">Cons</h3>
+<ul>
+<li><strong>Performance Issues</strong>: Can be slow without optimization</li>
+<li><strong>Security Risks</strong>: Popular target for hackers, requires regular updates</li>
+<li><strong>Bloat</strong>: Plugins can add unnecessary code and slow down your site</li>
+<li><strong>Maintenance</strong>: Regular updates for core, themes, and plugins needed</li>
+</ul>
+<h3 id="best-for-3">Best For</h3>
+<ul>
+<li>Blogs</li>
+<li>Online stores</li>
+<li>Websites with user-generated content</li>
+<li>Websites requiring a lot of customization</li>
+<li>Any site where ease of use is prioritized over raw performance</li>
+</ul>
+<hr/>
+<h2 id="hosting-considerations">Hosting Considerations</h2>
+<h3 id="traditional-hosting-sharedvps">Traditional Hosting (Shared/VPS)</h3>
+<p><strong>Providers</strong>: Bluehost, HostGator, DigitalOcean</p>
+<ul>
+<li>Full control over server</li>
+<li>Can host any type of website</li>
+<li>Requires server management skills</li>
+<li>Fixed monthly costs</li>
+</ul>
+<h3 id="cloud-platforms-us-based">Cloud Platforms (US-Based)</h3>
+<p><strong>Providers</strong>: Vercel, Netlify, AWS, Google Cloud</p>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>Easy deployment (often just <code>git push</code>)</li>
+<li>Automatic scaling</li>
+<li>Global CDN included</li>
+<li>Great developer experience</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li><strong>Privacy Concerns</strong>: Data stored in US (GDPR implications for EU users)</li>
+<li><strong>Vendor Lock-In</strong>: Harder to migrate away</li>
+<li><strong>Costs Can Scale</strong>: Pay-per-use can get expensive with traffic</li>
+<li><strong>Less Control</strong>: Limited server access and configuration</li>
+</ul>
+<h3 id="self-hosted-your-own-server">Self-Hosted (Your Own Server)</h3>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li><strong>Full Privacy</strong>: Complete control over data location</li>
+<li><strong>GDPR Compliant</strong>: Keep data in your jurisdiction</li>
+<li><strong>Cost Predictable</strong>: Fixed monthly cost regardless of traffic</li>
+<li><strong>Customizable</strong>: Install anything you want</li>
+<li><strong>No Vendor Lock-In</strong>: You own everything</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>Requires technical knowledge</li>
+<li>You’re responsible for security and updates</li>
+<li>Need to handle scaling yourself</li>
+</ul>
+<hr/>
+<h2 id="decision-matrix">Decision Matrix</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Need</th><th>Static</th><th>Dynamic</th><th>Hybrid</th><th>WordPress</th></tr></thead><tbody><tr><td>Speed</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐</td></tr><tr><td>SEO</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr><tr><td>User Management</td><td>❌</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>Easy Updates</td><td>⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>Security</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐</td></tr><tr><td>Cost</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td></tr><tr><td>Complexity</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr></tbody></table>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>There’s no one-size-fits-all answer. The best choice depends on your specific needs:</p>
+<ul>
+<li><strong>Choose Static</strong> if you need maximum speed and simplicity for content that rarely changes</li>
+<li><strong>Choose Dynamic</strong> if you need user accounts, personalization, or frequently changing content</li>
+<li><strong>Choose Hybrid</strong> if you want the best of both worlds and are comfortable with modern tooling</li>
+<li><strong>Choose WordPress</strong> if you need a user-friendly CMS and don’t mind the performance trade-offs</li>
+</ul>
+<p>For hosting, consider <strong>privacy implications</strong> of US-based services versus the convenience they offer. Self-hosting gives you complete control but requires more technical expertise.</p>
+<p>The modern web is moving toward hybrid approaches with frameworks like Next.js, offering the performance of static sites with the flexibility of dynamic features when needed.</p> </div> <footer class="mt-16 pt-8 border-t border-white/10"> <div class="flex justify-between items-center"> <a href="/blog" class="inline-flex items-center gap-2 text-secondary hover:text-primary transition-colors group"> <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+All articles
+</a> <a href="/#contact" class="inline-flex items-center gap-2 px-6 py-3 glass rounded-full hover:bg-white/10 transition-colors"> <i class="fas fa-envelope"></i>
+Get in touch
+</a> </div> </footer> </article> </main>  <footer class="relative overflow-hidden border-t border-white/10"> <!-- Animated gradient background --> <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 animate-gradient"></div> <div class="max-w-7xl mx-auto px-6 py-16 relative z-10"> <div class="grid md:grid-cols-4 gap-12 mb-12"> <!-- Brand section --> <div class="md:col-span-2"> <h3 class="text-3xl font-display mb-4 gradient-text">Mackenzie</h3> <p class="text-text-secondary mb-6 leading-relaxed"> Building fast, clean, and occasionally over-engineered things since the post-COVID boredom era. Fluent in HTML, Android Studio, and chaos. </p> <div class="flex gap-4"> <a href="https://github.com/mackenziedev" target="_blank" rel="noopener" class="w-10 h-10 glass glass-hover rounded-full flex items-center justify-center group hover:scale-110 transition-all"> <i class="fa-brands fa-github group-hover:text-primary transition-colors"></i> </a><a href="https://bsky.app/profile/mackenziedev.bsky.social" target="_blank" rel="noopener" class="w-10 h-10 glass glass-hover rounded-full flex items-center justify-center group hover:scale-110 transition-all"> <i class="fa-solid fa-cloud group-hover:text-primary transition-colors"></i> </a> </div> </div> <!-- Quick links --> <div> <h4 class="font-display text-lg mb-4">Quick Links</h4> <ul class="space-y-2"> <li> <a href="/#about" class="text-text-secondary hover:text-primary transition-colors text-sm"> About </a> </li><li> <a href="/#skills" class="text-text-secondary hover:text-primary transition-colors text-sm"> Skills </a> </li><li> <a href="/#experience" class="text-text-secondary hover:text-primary transition-colors text-sm"> Experience </a> </li><li> <a href="/#projects" class="text-text-secondary hover:text-primary transition-colors text-sm"> Projects </a> </li><li> <a href="/#articles" class="text-text-secondary hover:text-primary transition-colors text-sm"> Articles </a> </li><li> <a href="/#contact" class="text-text-secondary hover:text-primary transition-colors text-sm"> Contact </a> </li> </ul> </div> <!-- Contact --> <div> <h4 class="font-display text-lg mb-4">Contact</h4> <ul class="space-y-2 text-sm text-text-secondary"> <li> <a href="mailto:hello@mackenziedev.site" class="hover:text-primary transition-colors"> hello@mackenziedev.site </a> </li> <li> <a href="https://mackenziedev.site" target="_blank" class="hover:text-primary transition-colors"> mackenziedev.site </a> </li> </ul> </div> </div> <!-- Bottom bar --> <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4"> <p class="text-text-secondary text-sm"> © 2025 Mackenzie. All rights reserved. </p> <!-- Legal links with toggle --> <div class="flex gap-6 text-sm"> <a href="/imprint" class="text-text-secondary hover:text-primary transition-colors">
+Imprint
+</a> <a href="/privacy" class="text-text-secondary hover:text-primary transition-colors">
+Privacy
+</a> <a href="/terms" class="text-text-secondary hover:text-primary transition-colors">
+Terms
+</a> </div> </div> </div> </footer> </body></html>

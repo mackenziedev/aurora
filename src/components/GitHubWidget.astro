@@ -1,0 +1,139 @@
+---
+const { repoUrl } = Astro.props;
+
+// Extract owner and repo from GitHub URL
+const urlParts = repoUrl?.split('/').filter(Boolean) || [];
+const owner = urlParts[urlParts.length - 2];
+const repo = urlParts[urlParts.length - 1]?.replace('.git', '');
+
+let repoData = null;
+let error = null;
+
+if (owner && repo) {
+  try {
+    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+      headers: {
+        'Accept': 'application/vnd.github.v3+json',
+      }
+    });
+    
+    if (response.ok) {
+      repoData = await response.json();
+    } else {
+      error = 'Failed to fetch repo data';
+    }
+  } catch (e) {
+    error = 'Error connecting to GitHub API';
+  }
+}
+---
+
+{repoData && (
+  <div class="github-widget glass rounded-xl p-6 border border-white/10 hover:border-primary/50 transition-all">
+    <div class="flex items-start justify-between mb-4">
+      <div class="flex-1">
+        <div class="flex items-center gap-2 mb-2">
+          <i class="fa-brands fa-github text-primary text-lg"></i>
+          <a 
+            href={repoUrl}
+            target="_blank"
+            rel="noopener"
+            class="text-lg font-semibold hover:text-primary transition-colors truncate"
+          >
+            {repo}
+          </a>
+        </div>
+        <p class="text-sm text-secondary line-clamp-2">
+          {repoData.description || 'No description available'}
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+      <div class="bg-white/5 rounded-lg p-3 text-center hover:bg-primary/10 transition-colors">
+        <div class="text-xs text-secondary mb-1">Stars</div>
+        <div class="text-lg font-bold text-primary flex items-center justify-center gap-1">
+          <i class="fa-solid fa-star text-yellow-400 text-sm"></i>
+          {repoData.stargazers_count > 999 ? (repoData.stargazers_count / 1000).toFixed(1) + 'k' : repoData.stargazers_count}
+        </div>
+      </div>
+
+      <div class="bg-white/5 rounded-lg p-3 text-center hover:bg-primary/10 transition-colors">
+        <div class="text-xs text-secondary mb-1">Forks</div>
+        <div class="text-lg font-bold text-secondary flex items-center justify-center gap-1">
+          <i class="fa-solid fa-code-branch text-sm"></i>
+          {repoData.forks_count > 999 ? (repoData.forks_count / 1000).toFixed(1) + 'k' : repoData.forks_count}
+        </div>
+      </div>
+
+      <div class="bg-white/5 rounded-lg p-3 text-center hover:bg-primary/10 transition-colors">
+        <div class="text-xs text-secondary mb-1">Language</div>
+        <div class="text-sm font-semibold text-accent truncate">
+          {repoData.language || 'N/A'}
+        </div>
+      </div>
+
+      <div class="bg-white/5 rounded-lg p-3 text-center hover:bg-primary/10 transition-colors">
+        <div class="text-xs text-secondary mb-1">Issues</div>
+        <div class="text-lg font-bold text-accent">
+          {repoData.open_issues_count}
+        </div>
+      </div>
+    </div>
+
+    {repoData.topics && repoData.topics.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-4">
+        {repoData.topics.slice(0, 3).map((topic: string) => (
+          <span class="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full border border-primary/20">
+            {topic}
+          </span>
+        ))}
+      </div>
+    )}
+
+    <div class="grid grid-cols-2 gap-3 text-sm">
+      <div class="flex items-center gap-2 text-secondary">
+        <i class="fa-solid fa-code text-primary"></i>
+        <span>{repoData.license?.name || 'No license'}</span>
+      </div>
+      <div class="flex items-center gap-2 text-secondary">
+        <i class="fa-solid fa-calendar text-primary"></i>
+        <span>{new Date(repoData.updated_at).toLocaleDateString()}</span>
+      </div>
+    </div>
+
+    <a 
+      href={repoUrl}
+      target="_blank"
+      rel="noopener"
+      class="w-full mt-4 inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg transition-all text-sm font-medium group border border-primary/20"
+    >
+      <i class="fa-solid fa-external-link-alt group-hover:translate-x-1 transition-transform"></i>
+      View Repository
+    </a>
+  </div>
+)}
+
+<style>
+  .github-widget {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

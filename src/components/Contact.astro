@@ -1,71 +1,81 @@
 ---
 import { siteConfig } from '../config.js';
-import SocialCards from './SocialCards.astro';
 ---
 
 <section id="contact" class="py-32 relative overflow-hidden">
-  <!-- Added animated gradient background -->
+  <!-- Simplified background - removed social cards redirect -->
   <div class="absolute inset-0 overflow-hidden">
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
   </div>
 
   <div class="max-w-6xl mx-auto px-6 relative z-10">
     <div class="text-center mb-16">
-      <p class="text-secondary text-sm mb-4">... /Contacts ...</p>
-      <h2 class="text-6xl lg:text-8xl font-display mb-6 gradient-text">
-        Let's Create Something
+      <h2 class="text-6xl lg:text-8xl font-display mb-8 gradient-text">
+        Let's Connect
       </h2>
-      <p class="text-2xl text-secondary max-w-2xl mx-auto">
-        Have a project in mind? Let's bring your ideas to life together.
+      <p class="text-lg lg:text-xl text-secondary max-w-2xl mx-auto leading-relaxed">
+        Ready to discuss your next project or explore opportunities? Reach out through any of these channels.
       </p>
     </div>
 
-    <!-- Added stacked social cards component -->
-    <div class="mb-16">
-      <SocialCards />
-    </div>
-
-    <!-- Redesigned contact info cards with hover effects -->
-    <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-12">
+    <!-- Direct CTA buttons instead of redundant info cards -->
+    <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
+      <!-- Email Button -->
       <a 
-        href={`mailto:${siteConfig.email}`} 
-        class="group relative overflow-hidden p-8 glass rounded-2xl hover:scale-105 transition-all duration-300"
+        href={`mailto:${siteConfig.email}`}
+        class="group relative overflow-hidden p-8 glass rounded-2xl hover:scale-105 transition-all duration-300 border border-primary/20 hover:border-primary/40"
       >
         <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        <div class="relative z-10">
-          <div class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <i class="fa-solid fa-envelope text-2xl text-primary"></i>
+        <div class="relative z-10 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-envelope text-3xl text-primary"></i>
           </div>
-          <p class="text-xs text-secondary uppercase tracking-wider mb-2">Email</p>
-          <p class="text-lg font-medium">{siteConfig.email}</p>
+          <h3 class="text-lg font-semibold mb-2">Send an Email</h3>
+          <p class="text-sm text-secondary">{siteConfig.email}</p>
         </div>
       </a>
 
-      <a 
-        href={`https://${siteConfig.domain}`} 
-        target="_blank" 
-        class="group relative overflow-hidden p-8 glass rounded-2xl hover:scale-105 transition-all duration-300"
-      >
-        <div class="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        <div class="relative z-10">
-          <div class="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-            <i class="fa-solid fa-globe text-2xl text-accent"></i>
-          </div>
-          <p class="text-xs text-secondary uppercase tracking-wider mb-2">Website</p>
-          <p class="text-lg font-medium">{siteConfig.domain}</p>
-        </div>
-      </a>
+      <!-- Fixed template literal syntax in social links mapping -->
+      {siteConfig.socials.map((social) => {
+        const icons = {
+          'GitHub': 'fa-brands fa-github',
+          'LinkedIn': 'fa-brands fa-linkedin',
+          'Twitter': 'fa-brands fa-twitter',
+          'Discord': 'fa-brands fa-discord',
+        };
+        const icon = icons[social.name] || 'fa-solid fa-link';
+        const href = social.url;
+        
+        return (
+          <a 
+            href={href}
+            target="_blank"
+            rel="noopener"
+            class="group relative overflow-hidden p-8 glass rounded-2xl hover:scale-105 transition-all duration-300 border border-secondary/20 hover:border-secondary/40"
+          >
+            <div class="absolute inset-0 bg-gradient-to-br from-secondary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="relative z-10 flex flex-col items-center text-center">
+              <div class="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <i class={`${icon} text-3xl text-secondary`}></i>
+              </div>
+              <h3 class="text-lg font-semibold mb-1">{social.name}</h3>
+              <p class="text-xs text-secondary uppercase tracking-wider">Connect</p>
+            </div>
+          </a>
+        );
+      })}
     </div>
 
-    <!-- Added call-to-action with gradient button -->
+    <!-- Single prominent CTA -->
     <div class="text-center">
+      <p class="text-secondary mb-6">Or start with a quick message:</p>
       <a 
         href={`mailto:${siteConfig.email}`}
         class="inline-flex items-center gap-3 px-8 py-4 gradient-bg rounded-full text-lg font-medium hover:scale-105 transition-all glow-hover"
       >
-        <span>Start a Conversation</span>
-        <i class="fa-solid fa-paper-plane"></i>
+        <span>Get In Touch</span>
+        <i class="fa-solid fa-arrow-right"></i>
       </a>
     </div>
   </div>

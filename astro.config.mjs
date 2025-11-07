@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import tailwind from '@astrojs/tailwind';
-
+import rss from '@astrojs/rss';
 import vercel from '@astrojs/vercel';
 
 export default defineConfig({
@@ -15,10 +15,16 @@ export default defineConfig({
 
   markdown: {
     shikiConfig: {
-      theme: 'github-dark',
-      wrap: true
+      theme: 'dracula',
+      themes: {
+        light: 'dracula',
+        dark: 'dracula',
+      },
+      wrap: true,
+      transformers: []
     }
   },
 
+  output: 'static',
   adapter: vercel()
 });

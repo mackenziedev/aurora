@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+// import GitHubWidget from './GitHubWidget.astro'; // Removed GitHub widget import
 
 const projects = await getCollection('projects');
 const sortedProjects = projects
@@ -24,8 +25,6 @@ const allCategories = [...new Set(projects.filter(p => !p.slug.startsWith('_')).
       </p>
     </div>
 
-
-
     <div id="empty-state" class="hidden text-center py-20">
       <div class="glass rounded-3xl p-12 max-w-md mx-auto">
         <i class="fa-solid fa-folder-open text-6xl text-text-secondary/30 mb-6"></i>
@@ -38,51 +37,53 @@ const allCategories = [...new Set(projects.filter(p => !p.slug.startsWith('_')).
 
     <div id="projects-grid" class="grid md:grid-cols-2 gap-8">
       {sortedProjects.map((project, index) => (
-        <a 
-          href={`/projects/${project.slug}`}
-          class="project-card group relative glass rounded-3xl overflow-hidden glass-hover border border-white/10 hover:border-primary/50 transition-all duration-500"
-          style={`animation-delay: ${index * 0.1}s;`}
-          data-category={project.data.category.toLowerCase()}
-        >
-          <!-- Added image overlay with gradient -->
-          <div class="relative h-64 overflow-hidden">
-            <img 
-              src={project.data.image || "/placeholder.svg"} 
-              alt={project.data.title}
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
-          </div>
-
-          <!-- Enhanced content section -->
-          <div class="p-8">
-            <h3 class="text-3xl font-display mb-4 group-hover:gradient-text transition-all">{project.data.title}</h3>
-            
-            <!-- Added tags with gradient styling -->
-            <div class="flex flex-wrap gap-2 mb-4">
-              {project.data.tags.map((tag) => (
-                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs border border-primary/20">
-                  {tag}
-                </span>
-              ))}
+        <div class="flex flex-col gap-4" style={`animation-delay: ${index * 0.1}s;`}>
+          <a 
+            href={`/projects/${project.slug}`}
+            class="project-card group relative glass rounded-3xl overflow-hidden glass-hover border border-white/10 hover:border-primary/50 transition-all duration-500"
+            data-category={project.data.category.toLowerCase()}
+          >
+            <!-- Added image overlay with gradient -->
+            <div class="relative h-64 overflow-hidden">
+              <img 
+                src={project.data.image || "/placeholder.svg"} 
+                alt={project.data.title}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
             </div>
-            
-            <p class="text-text-secondary leading-relaxed mb-6">
-              {project.data.description}
-            </p>
-            
-            <!-- Enhanced CTA with gradient button -->
-            <div class="flex items-center gap-4">
-              <span class="text-sm text-text-secondary group-hover:text-primary transition-colors">View project</span>
-              <div class="w-10 h-10 gradient-bg rounded-full flex items-center justify-center group-hover:translate-x-2 transition-transform glow-hover">
-                <i class="fa-solid fa-arrow-right"></i>
+
+            <!-- Enhanced content section -->
+            <div class="p-8">
+              <h3 class="text-3xl font-display mb-4 group-hover:gradient-text transition-all">{project.data.title}</h3>
+              
+              <!-- Added tags with gradient styling -->
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.data.tags.map((tag) => (
+                  <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs border border-primary/20">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              
+              <p class="text-text-secondary leading-relaxed mb-6">
+                {project.data.description}
+              </p>
+              
+              <!-- Enhanced CTA with gradient button -->
+              <div class="flex items-center gap-4">
+                <span class="text-sm text-text-secondary group-hover:text-primary transition-colors">View project</span>
+                <div class="w-10 h-10 gradient-bg rounded-full flex items-center justify-center group-hover:translate-x-2 transition-transform glow-hover">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Added corner accent decoration -->
-          <div class="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-primary/30 rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        </a>
+            <!-- Added corner accent decoration -->
+            <div class="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-primary/30 rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </a>
+          {/* GitHub widget removed from projects list */}
+        </div>
       ))}
     </div>
 

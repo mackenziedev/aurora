@@ -8,7 +8,6 @@ const githubUrl = githubSocial?.url || 'https://github.com';
 <nav class="fixed top-0 left-0 right-0 z-50 nav-blur transition-transform duration-300">
   <div class="max-w-7xl mx-auto px-6">
     <div class="flex items-center justify-between h-20">
-      <!-- Logo with gradient effect -->
       <a href="/" class="relative group">
         <span class="text-2xl font-display tracking-wider gradient-text hover:scale-105 transition-transform inline-block">
           {siteConfig.name}
@@ -16,7 +15,6 @@ const githubUrl = githubSocial?.url || 'https://github.com';
         <div class="absolute -bottom-1 left-0 w-0 h-0.5 gradient-bg group-hover:w-full transition-all duration-300"></div>
       </a>
       
-      <!-- Desktop Navigation -->
       <div class="hidden lg:flex items-center gap-1">
         {siteConfig.navigation.map((item, index) => (
           <a 
@@ -30,8 +28,8 @@ const githubUrl = githubSocial?.url || 'https://github.com';
         ))}
       </div>
 
-      <!-- CTA Button -->
       <div class="hidden lg:flex items-center gap-4">
+        <!-- Fixed theme toggle with proper icon positioning -->
         <a 
           href={githubUrl}
           target="_blank"
@@ -43,7 +41,6 @@ const githubUrl = githubSocial?.url || 'https://github.com';
         </a>
       </div>
 
-      <!-- Increased button size and added animated hamburger icon -->
       <button 
         id="mobile-menu-btn" 
         class="lg:hidden w-12 h-12 glass glass-hover rounded-full flex items-center justify-center relative"
@@ -58,7 +55,6 @@ const githubUrl = githubSocial?.url || 'https://github.com';
     </div>
   </div>
 
-  <!-- Added animated mobile menu with slide-down effect -->
   <div id="mobile-menu" class="lg:hidden mobile-menu">
     <div class="glass border-t border-white/10 backdrop-blur-xl">
       <div class="max-w-7xl mx-auto px-6 py-6 space-y-2">
@@ -91,6 +87,11 @@ const githubUrl = githubSocial?.url || 'https://github.com';
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
+  html.light .nav-blur {
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
   .nav-link {
     opacity: 0;
     animation: fadeInDown 0.5s ease-out forwards;
@@ -111,7 +112,6 @@ const githubUrl = githubSocial?.url || 'https://github.com';
     color: #6366f1;
   }
 
-  /* Animated hamburger icon styles */
   .hamburger {
     width: 24px;
     height: 18px;
@@ -130,6 +130,10 @@ const githubUrl = githubSocial?.url || 'https://github.com';
     transition: all 0.3s ease;
   }
 
+  html.light .hamburger span {
+    background: black;
+  }
+
   .menu-open .hamburger span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
@@ -142,7 +146,6 @@ const githubUrl = githubSocial?.url || 'https://github.com';
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  /* Mobile menu animation styles */
   .mobile-menu {
     max-height: 0;
     overflow: hidden;
@@ -169,9 +172,54 @@ const githubUrl = githubSocial?.url || 'https://github.com';
   .mobile-menu.open .mobile-menu-item:nth-child(3) { transition-delay: 0.2s; }
   .mobile-menu.open .mobile-menu-item:nth-child(4) { transition-delay: 0.25s; }
   .mobile-menu.open .mobile-menu-item:nth-child(5) { transition-delay: 0.3s; }
+
+  .toggle-circle {
+    left: 1px;
+    transition: left 0.3s ease;
+  }
+
+  :global(html.dark) .toggle-circle {
+    left: 1px;
+  }
+
+  :global(html.light) .toggle-circle {
+    left: 33px;
+  }
+
+  .mobile-toggle-circle {
+    left: 1px;
+    transition: left 0.3s ease;
+  }
+
+  :global(html.dark) .mobile-toggle-circle {
+    left: 1px;
+  }
+
+  :global(html.light) .mobile-toggle-circle {
+    left: 26px;
+  }
 </style>
 
 <script>
+  // const themeToggle = document.getElementById('theme-toggle');
+  // const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+  
+  // function toggleTheme() {
+  //   const current = document.documentElement.classList.contains('light') ? 'light' : 'dark';
+  //   const newTheme = current === 'dark' ? 'light' : 'dark';
+    
+  //   const date = new Date();
+  //   date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+  //   document.cookie = `theme=${newTheme}; expires=${date.toUTCString()}; path=/`;
+    
+  //   document.documentElement.classList.remove('dark', 'light');
+  //   document.documentElement.classList.add(newTheme);
+  //   document.documentElement.setAttribute('data-theme', newTheme);
+  // }
+
+  // themeToggle?.addEventListener('click', toggleTheme);
+  // mobileThemeToggle?.addEventListener('click', toggleTheme);
+
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
@@ -188,7 +236,6 @@ const githubUrl = githubSocial?.url || 'https://github.com';
     });
   });
 
-  // Add scroll effect
   let lastScroll = 0;
   const nav = document.querySelector('nav');
 

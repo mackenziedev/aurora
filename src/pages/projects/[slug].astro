@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import GitHubWidget from '../../components/GitHubWidget.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -74,6 +75,13 @@ const { Content } = await project.render();
             alt={project.data.title}
             class="w-full"
           />
+        </div>
+      )}
+
+      <!-- Added GitHub widget to project pages -->
+      {project.data.github && (
+        <div class="mb-12">
+          <GitHubWidget repoUrl={project.data.github} />
         </div>
       )}
 
